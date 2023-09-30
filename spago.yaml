@@ -1,0 +1,144 @@
+package:
+  dependencies:
+    - aff
+    - argonaut
+    - backend-optimizer
+    - bifunctors
+    - console
+    - dodo-printer
+    - effect
+    - either
+    - exceptions
+    - foldable-traversable
+    - maybe
+    - newtype
+    - node-buffer
+    - node-fs
+    - node-glob-basic
+    - node-path
+    - node-process
+    - parallel
+    - prelude
+    - strings
+    - transformers
+    - tuples
+  name: purerb
+workspace:
+  package_set:
+    registry: 42.1.0
+  extra_packages:
+    dodo-printer:
+      git: https://github.com/natefaubion/purescript-dodo-printer.git
+      ref: 831c5c963a57ca4bfd62f96335267d7d0785851d
+      dependencies:
+        - aff
+        - ansi
+        - arrays
+        - avar
+        - console
+        - control
+        - effect
+        - either
+        - exceptions
+        - foldable-traversable
+        - integers
+        - lists
+        - maybe
+        - minibench
+        - newtype
+        - parallel
+        - partial
+        - posix-types
+        - prelude
+        - safe-coerce
+        - strings
+        - tuples
+    backend-optimizer:
+      git: https://github.com/aristanetworks/purescript-backend-optimizer
+      ref: 54b82ac23143dd47bfafaf52dec81dd7ccf2b490
+      dependencies:
+        - aff
+        - ansi
+        - argonaut
+        - argparse-basic
+        - arrays
+        - bifunctors
+        - console
+        - control
+        - datetime
+        - debug
+        - dodo-printer
+        - effect
+        - either
+        - enums
+        - filterable
+        - foldable-traversable
+        - foreign-object
+        - integers
+        - language-cst-parser
+        - lazy
+        - lists
+        - maybe
+        - newtype
+        - now
+        - numbers
+        - ordered-collections
+        - orders
+        - parallel
+        - partial
+        - posix-types
+        - prelude
+        - refs
+        - safe-coerce
+        - st
+        - strings
+        - transformers
+        - tuples
+        - unsafe-coerce
+    language-cst-parser:
+      git: https://github.com/natefaubion/purescript-language-cst-parser.git
+      ref: bf5623e08e1f43f923d4ff3c29cafbda25128768
+      dependencies:
+        - arrays
+        - console
+        - const
+        - control
+        - effect
+        - either
+        - enums
+        - foldable-traversable
+        - free
+        - functions
+        - functors
+        - identity
+        - integers
+        - lazy
+        - lists
+        - maybe
+        - newtype
+        - node-process
+        - numbers
+        - ordered-collections
+        - partial
+        - prelude
+        - st
+        - strings
+        - transformers
+        - tuples
+        - typelevel-prelude
+        - unfoldable
+        - unsafe-coerce
+    node-glob-basic:
+      git: https://github.com/natefaubion/purescript-node-glob-basic.git
+      ref: v1.2.2
+      dependencies:
+        - aff
+        - console
+        - effect
+        - lists
+        - maybe
+        - node-fs
+        - node-path
+        - node-process
+        - ordered-collections
+        - strings
