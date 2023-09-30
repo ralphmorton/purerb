@@ -133,7 +133,7 @@ literal = case _ of
 prop :: String -> Expr -> Printer
 prop name e = do
   ex <- expr e
-  pure $ text (name <> ":") <> ex
+  pure $ text (name <> ": ") <> ex
 
 --
 --
@@ -220,7 +220,7 @@ primop = case _ of
     ex2 <- expr e2
     pure $ ex1 <> text "[" <> ex2 <> text "]"
   Ctor tag params -> do
-    let px = commas $ (\p -> text (p <> ":" <> p)) <$> params
+    let px = commas $ (\p -> text (p <> ": " <> p)) <$> params
     pure $ text "{tag:\"" <> text tag <> text "\",params:{" <> px <> text "}}"
 
 --

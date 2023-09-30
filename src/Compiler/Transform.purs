@@ -59,7 +59,7 @@ transform opts mod = _.out $ execState transform' {
 }
 
 toModuleName :: ModuleName -> String
-toModuleName = replace (wrap ".") (wrap "::") <<< unwrap
+toModuleName = ("::" <> _) <<< replace (wrap ".") (wrap "::") <<< unwrap
 
 --
 --
@@ -180,7 +180,7 @@ expr (NeutralExpr syn) = case syn of
         }
       _ ->
         pure $ Syn.Variable {
-          mod: Nothing,
+          mod: pure (toModuleName mod.name),
           name: symbol ident
         }
   Local ident _ -> case ident of
@@ -217,8 +217,8 @@ expr (NeutralExpr syn) = case syn of
     pure $ Syn.Accessor ex acc
   Update ex props ->
     pure $ Syn.Unimplemented "update"
-  CtorSaturated _ _ _ ident ax -> do
-    let fn = Syn.Variable { mod: Nothing, name: symbol ident }
+  CtorSaturated (Qualified mod ident) _ _ _ ax -> do
+    let fn = Syn.Variable { mod: toModuleName <$> mod, name: symbol ident }
     args <- traverse expr (snd <$> ax)
     pure $ Syn.App Syn.Curried fn args
   CtorDef _ _ ident params ->
