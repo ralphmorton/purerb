@@ -89,7 +89,11 @@ toModulePath =
 snakeCase :: String -> String
 snakeCase = combine <<< foldl transform { init: "", tail: [] } <<< S.toCharArray
   where
-  combine { init, tail } = init <> Str.toLower (S.fromCharArray tail)
+  combine { init, tail } = case init of
+    "" ->
+      Str.toLower (S.fromCharArray tail)
+    _ ->
+      init <> "_" <> Str.toLower (S.fromCharArray tail)
 
   transform { init, tail } c = case isUpper c of
     false ->
